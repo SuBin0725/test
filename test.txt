@@ -1,1 +1,29 @@
-아무거나
+//Jenkinsfile
+pipeline {
+    agent any //Agent Sections
+    stages { //Stages Sections
+        stage('Example') { //Steps
+            agent any
+            steps {
+                ...
+            }
+            post {  //Post Section
+                failure{
+                    error "Fail Cloned Repository"
+                }
+            }
+        }
+
+        stage('Build') {
+            agent any
+            steps{
+              ...
+            }
+            post{
+                failure{
+                    error 'Fail Build'
+                }
+            }
+        }
+    }
+}
